@@ -1,10 +1,16 @@
 /* LOADER */
-window.addEventListener('load', () => {
+const hideLoader = () => {
     const loader = document.getElementById('loader');
     if (loader) {
         loader.classList.add('hide-loader');
     }
-});
+}
+
+// Hide when everything is loaded
+window.addEventListener('load', hideLoader);
+
+// Failsafe: hide loader after 5 seconds anyway if it's still there
+setTimeout(hideLoader, 5000);
 
 /* SHOW MENU */
 const navMenu = document.getElementById('nav-menu'),
