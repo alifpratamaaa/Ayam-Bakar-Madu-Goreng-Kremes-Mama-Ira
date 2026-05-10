@@ -1,17 +1,3 @@
-/* LOADER */
-const hideLoader = () => {
-    const loader = document.getElementById('loader');
-    if (loader) {
-        loader.classList.add('hide-loader');
-    }
-}
-
-// Hide when everything is loaded
-window.addEventListener('load', hideLoader);
-
-// Failsafe: hide loader after 5 seconds anyway if it's still there
-setTimeout(hideLoader, 5000);
-
 /* SHOW MENU */
 const navMenu = document.getElementById('nav-menu'),
       navToggle = document.getElementById('nav-toggle'),
@@ -34,6 +20,7 @@ navLinks.forEach(n => n.addEventListener('click', linkAction));
 /* CHANGE BACKGROUND HEADER */
 const scrollHeader = () => {
     const header = document.getElementById('header');
+    if(!header) return;
     // When the scroll is greater than 50 viewport height, add the scroll-header class to the header tag
     window.scrollY >= 50 ? header.classList.add('scroll-header') 
                          : header.classList.remove('scroll-header');
